@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home/furfa/work/OpenAi/LunarLander-v2-Solve/Scripts'
+let g:netrw_dirhist_2='/home/furfa/.vim'
+let g:netrw_dirhist_3='/home/furfa'
+let g:netrw_dirhist_4='/home/furfa/.vim'
+let g:netrw_dirhist_5='/home/furfa'
+let g:netrw_dirhist_6='/home/furfa/work/OpenAi/LunarLander-v2-Solve'
+let g:netrw_dirhist_7='/home/furfa/work/OpenAi/LunarLander-v2-Solve/Scripts'
