@@ -4,13 +4,13 @@ export TERM="xterm-256color"
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/furfa/.oh-my-zsh"
+export ZSH="/home/furfa/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="af-magic"
+ZSH_THEME="avit"
 
 
 
@@ -67,7 +67,7 @@ ZSH_THEME="af-magic"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-git colored-man-pages pip tmux ubuntu
+git colored-man-pages pip tmux ubuntu vi-mode docker
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -104,6 +104,7 @@ source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 bindkey -v
 export KEYTIMEOUT=1
+
 export EDITOR=vim
 
 # added by Anaconda3 installer
