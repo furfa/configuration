@@ -1,6 +1,6 @@
 # configuration
 
-> to install gksudo on ubuntu 18.10
+### to install gksudo on ubuntu 18.10
 
 ```bash
 wget http://mirrors.kernel.org/ubuntu/pool/universe/libg/libgksu/libgksu2-0_2.0.13~pre1-9ubuntu2_amd64.deb
