@@ -1,0 +1,71 @@
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgba
+Xft.autohint: false
+Xft.hintstyle: hintsfull
+
+! ------------------------------------------------------------------------------
+! Color Scheme
+! ------------------------------------------------------------------------------
+*fading:				15
+*fadeColor:				black
+*pointerColorBackground:		#2B2C2B
+*pointerColorForeground:		#16A085
+
+! special
+*.foreground:   #f3f4f5
+*.background:   #2f343f
+*.cursorColor:  #f3f4f5
+
+! black
+*.color0:       #282a2e
+*.color8:       #373b41
+
+! red
+*.color1:       #e53935
+*.color9:       #d64141
+
+! green
+*.color2:       #aebb2f
+*.color10:      #afba4d
+
+! yellow
+*.color3:       #db8346
+*.color11:      #e6955d
+
+! blue
+*.color4:       #5193e1
+*.color12:      #71a1ca
+
+! magenta
+*.color5:       #7b5887
+*.color13:      #ab89b5
+
+! cyan
+*.color6:       #4d958c
+*.color14:      #8abeb7
+
+! white
+*.color7:       #707880
+*.color15:      #c5c8c6
+
+! ------------------------------------------------------------------------------
+! URxvt Terminal Config
+! ------------------------------------------------------------------------------
+!URxvt.font:                       xft:Terminus:size=11
+URxvt.font:                       xft:Roboto Mono:size=11
+URxvt.depth:                      32
+URxvt.internalBorder:             18
+URxvt.background:                 #2f343f
+URxvt*background:                 #2f343f
+URxvt*foreground:                 #f3f4f5
+URxvt*scrollBar:                  false
+URxvt*cursorBlink:                true
+URxvt*saveLines:                  1000
+
+! Scroll 1 line
+URxvt.keysym.Shift-Up: command:\033]720;1\007
+URxvt.keysym.Shift-Down: command:\033]721;1\007
+
+URxvt.perl-ext-common:  font-size

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xbel version="1.0"
+      xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
+      xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
+>
+  <bookmark href="sftp://192.168.105.5:1337/" added="2019-03-09T17:17:29Z" modified="2019-03-09T17:17:29Z" visited="2019-03-09T17:17:29Z">
+    <title>/ на 192.168.105.5</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="nautilus" exec="&apos;nautilus %u&apos;" modified="2019-03-09T17:17:29Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="smb://192.168.105.20/" added="2019-04-14T16:32:04Z" modified="2019-04-14T16:37:01Z" visited="2019-04-14T16:37:01Z">
+    <title>Ресурсы Windows на 192.168.105.20</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="nautilus" exec="&apos;nautilus %u&apos;" modified="2019-04-14T16:37:01Z" count="4"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="smb:///%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B5%D0%B9:111@192.168.105.20" added="2019-04-14T16:33:33Z" modified="2019-04-14T16:33:33Z" visited="2019-04-14T16:33:33Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="nautilus" exec="&apos;nautilus %u&apos;" modified="2019-04-14T16:33:33Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="smb://192.168.105.20%0A/" added="2019-04-14T16:33:58Z" modified="2019-04-14T16:36:21Z" visited="2019-04-14T16:36:21Z">
+    <title>Ресурсы Windows на 192.168.105.20
+</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="nautilus" exec="&apos;nautilus %u&apos;" modified="2019-04-14T16:36:21Z" count="3"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+</xbel>

@@ -1,0 +1,231 @@
+# i3 config file (v4)
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+set $up l
+set $down k
+set $left j
+set $right semicolon
+
+set $mod Mod4
+new_window pixel 1
+new_float normal
+hide_edge_borders smart
+floating_modifier $mod
+font pango:Roboto 10
+
+bindsym $mod+Return exec st
+bindsym $mod+Shift+Return exec st "tmux"
+bindsym $mod+Shift+q kill
+
+bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+Shift+d exec --no-startup-id rofi -show drun
+bindsym $mod+Shift+v exec ~/.scripts/switch_screen.sh 
+bindsym XF86Explorer exec --no-startup-id rofi -show run
+
+exec --no-startup-id dunst &
+
+# Scrot binds
+bindsym --release $Mod+Print exec gnome-screenshot
+bindsym --release $Mod+Shift+Print exec ~/.scripts/make_screenshot.sh
+
+# Audio
+bindsym XF86AudioRaiseVolume exec ~/.scripts/volume_control.sh raise 
+bindsym XF86AudioLowerVolume exec ~/.scripts/volume_control.sh lower 
+bindsym XF86AudioMute exec ~/.scripts/volume_control.sh mute 
+bindsym XF86AudioMicMute exec --no-startup-id amixer -D pulse sset Capture toggle
+bindsym $Mod+m exec --no-startup-id pavucontrol
+
+# Screen brightness controls
+# xmodmap -pke
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym Shift+XF86MonBrightnessUp exec xbacklight -inc 1
+bindsym Shift+XF86MonBrightnessDown exec xbacklight -dec 1
+
+### Focus settings ###
+focus_follows_mouse yes
+
+# change focus
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# change alt
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# Alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Window focus toggles and such
+bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+a focus parent
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Workspace names
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $ws10 10
+
+# Switch to workspace
+bindsym $mod+Ctrl+Right workspace next
+bindsym $mod+Ctrl+Left workspace prev
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# Move focused container to workspace (no-follow)
+bindsym $mod+Shift+1 move container to workspace $ws1; 
+bindsym $mod+Shift+2 move container to workspace $ws2;
+bindsym $mod+Shift+3 move container to workspace $ws3;
+bindsym $mod+Shift+4 move container to workspace $ws4;
+bindsym $mod+Shift+5 move container to workspace $ws5;
+bindsym $mod+Shift+6 move container to workspace $ws6;
+bindsym $mod+Shift+7 move container to workspace $ws7;
+bindsym $mod+Shift+8 move container to workspace $ws8;
+bindsym $mod+Shift+9 move container to workspace $ws9;
+bindsym $mod+Shift+0 move container to workspace $ws10;
+
+# move the currently focused window to the scratchpad
+bindsym $mod+Shift+grave move scratchpad
+bindsym $mod+grave scratchpad show
+
+# Open specific applications in floating mode
+for_window [urgent=latest] focus
+for_window [class="Pavucontrol"] floating enable
+for_window [class="connection-editor"] floating enable
+
+# i3 Reload and restart binds
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Set shut down, restart and locking features
+
+bindsym $mod+Shift+x exec ~/.scripts/lock.sh
+bindsym $mod+Ctrl+Shift+x exec systemctl suspend && ~/.scripts/lock.sh 
+
+# Resize menu
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym $left       resize shrink width 5 px or 5 ppt
+        bindsym $down       resize grow height 5 px or 5 ppt
+        bindsym $up         resize shrink height 5 px or 5 ppt
+        bindsym $right      resize grow width 5 px or 5 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left        resize shrink width 5 px or 5 ppt
+        bindsym Down        resize grow height 5 px or 5 ppt
+        bindsym Up          resize shrink height 5 px or 5 ppt
+        bindsym Right       resize grow width 5 px or 5 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# Colors from ~/.Xresources
+set_from_resource $term_background background
+set_from_resource $term_foreground foreground
+set_from_resource $term_color0     color0
+set_from_resource $term_color1     color1
+set_from_resource $term_color2     color2
+set_from_resource $term_color3     color3
+set_from_resource $term_color4     color4
+set_from_resource $term_color5     color5
+set_from_resource $term_color6     color6
+set_from_resource $term_color7     color7
+set_from_resource $term_color8     color8
+set_from_resource $term_color9     color9
+set_from_resource $term_color10    color10
+set_from_resource $term_color11    color11
+set_from_resource $term_color12    color12
+set_from_resource $term_color13    color13
+set_from_resource $term_color14    color14
+set_from_resource $term_color15    color15
+
+# window colors         border        background        text              indicator
+client.focused          $term_color4  $term_color4      $term_foreground  $term_color4
+client.unfocused        $term_color4  $term_background  $term_foreground  $term_color4
+client.focused_inactive $term_color4  $term_background  $term_foreground  $term_color4
+client.urgent           $term_color4  $term_background  $term_foreground  $term_color4
+
+# Start i3bar to display a workspace bar (plus the system information i3status if available)
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+exec_always --no-startup-id compton& 
+
+exec_always nitrogen ~/Wallpaper/wallpaper.jpg --restore
+
+exec_always "setxkbmap -option 'grp:alt_shift_toggle' -layout us,ru"
+##########################################################
+# RUNAPPS                                                #
+##########################################################
+
+bindsym $mod+Shift+w exec firefox
+bindsym $mod+Ctrl+t exec nautilus
+bindsym $mod+Ctrl+k exec keepassxc
+
+bindsym $mod+Shift+y exec gksu ~/.scripts/reset_touchpad.sh
+
+
+##########################################################
+# AUTOSTART                                              #
+##########################################################
+
+exec --no-startup-id /usr/bin/gnome-settings-daemon
+
+exec --no-startup-id blueman-applet
+
+exec --no-startup-id nm-applet
+
+exec --no-startup-id telegram-desktop
+
+exec --no-startup-id psensor
+
+exec --no-startup-id vk
+
+exec --no-startup-id dropbox start
+
+exec --no-startup-id keepassxc
