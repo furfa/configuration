@@ -12,8 +12,8 @@ hide_edge_borders smart
 floating_modifier $mod
 font pango:Roboto 10
 
-bindsym $mod+Return exec st
-bindsym $mod+Shift+Return exec st "tmux"
+bindsym $mod+Shift+Return exec st
+bindsym $mod+Return exec st "tmux"
 bindsym $mod+Shift+q kill
 
 bindsym $mod+d exec --no-startup-id rofi -show run
@@ -204,7 +204,7 @@ exec_always "setxkbmap -option 'grp:alt_shift_toggle' -layout us,ru"
 ##########################################################
 
 bindsym $mod+Shift+w exec firefox
-bindsym $mod+Ctrl+t exec nautilus
+bindsym $mod+Ctrl+t exec thunar
 bindsym $mod+Ctrl+k exec keepassxc
 
 bindsym $mod+Shift+y exec gksu ~/.scripts/reset_touchpad.sh
