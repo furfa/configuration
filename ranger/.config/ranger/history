@@ -4,9 +4,7 @@ search tm
 get_preview 
 0
 open_with code
-open_with 
 open_with vim
-help
 shell mkdir config
 
 sh
@@ -16,3 +14,7 @@ search .screen
 delete
 search Изобра
 search x-term
+open_with 
+open_with xdg-open
+search Изоб
+help

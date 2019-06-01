@@ -12,8 +12,8 @@ hide_edge_borders smart
 floating_modifier $mod
 font pango:Roboto 10
 
-bindsym $mod+Shift+Return exec st
-bindsym $mod+Return exec st "tmux"
+bindsym $mod+Shift+Return exec alacritty -e "tmux"
+bindsym $mod+Return exec  alacritty 
 bindsym $mod+Shift+q kill
 
 bindsym $mod+d exec --no-startup-id rofi -show run
@@ -24,8 +24,7 @@ bindsym XF86Explorer exec --no-startup-id rofi -show run
 exec --no-startup-id dunst &
 
 # Scrot binds
-bindsym --release $Mod+Print exec gnome-screenshot
-bindsym --release $Mod+Shift+Print exec ~/.scripts/make_screenshot.sh
+bindsym --release Print exec ~/.scripts/make_screenshot.sh
 
 # Audio
 bindsym XF86AudioRaiseVolume exec ~/.scripts/volume_control.sh raise 
@@ -196,7 +195,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 exec_always --no-startup-id compton& 
 
-exec_always nitrogen ~/Wallpaper/wallpaper.jpg --restore
+exec_always nitrogen ~/Wallpaper/wallpaper1.jpg --restore
 
 exec_always "setxkbmap -option 'grp:alt_shift_toggle' -layout us,ru"
 ##########################################################
@@ -208,12 +207,12 @@ bindsym $mod+Ctrl+t exec thunar
 bindsym $mod+Ctrl+k exec keepassxc
 
 bindsym $mod+Shift+y exec gksu ~/.scripts/reset_touchpad.sh
-
+bindsym $mod+Shift+t exec ~/.screenlayout/only-main.sh
 
 ##########################################################
 # AUTOSTART                                              #
 ##########################################################
-
+exec_always --no-startup-id libinput-gestures
 exec --no-startup-id /usr/bin/gnome-settings-daemon
 
 exec --no-startup-id blueman-applet
@@ -229,3 +228,15 @@ exec --no-startup-id vk
 exec --no-startup-id dropbox start
 
 exec --no-startup-id keepassxc
+
+bindsym $Mod+n exec --no-startup-id echo "vk \ntelegram-desktop" | rofi -dmenu | bash
+bindsym $Mod+b exec --no-startup-id nm-connection-editor
+
+
+smart_borders on
+smart_gaps on
+gaps inner 6
+gaps outer 0
+
+bindsym $mod+z		gaps inner current plus 3
+bindsym $mod+Shift+z gaps inner current minus 3

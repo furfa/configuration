@@ -22,7 +22,7 @@ alert = ${xrdb:color1}
 monitor = ${env:MONITOR:}
 
 width = 100%
-height = 24
+height = 22
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0
@@ -41,7 +41,7 @@ font-0 = Roboto:style=bold:pixelsize=10;1
 font-1 = Font Awesome 5 Free:pixelsize=10;1
 font-2 = Font Awesome 5 Free Solid:pixelsize=10;1
 font-3 = Font Awesome 5 Brands:pixelsize=10;1
-modules-left = bspwm i3
+modules-left = bspwm i3 wlan eth
 modules-center = date 
 modules-right = xkeyboard cpu backlight-acpi pulseaudio bat0 bat1 
 
@@ -185,7 +185,8 @@ interval = 3.0
 format-connected-underline = ${colors.primary}
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
+label-connected = connected 
+;%local_ip%
 ;format-disconnected =
 format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
@@ -197,8 +198,8 @@ type = internal/date
 interval = 5
 date = "%a %b %d"
 date-alt = "%d/%m/%Y"
-time = "%I:%M %p"
-time-alt = "%I:%M %p"
+time = "%H:%M"
+time-alt = "%H:%M:%S"
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.primary}
 format-background = ${colors.primary}
