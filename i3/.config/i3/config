@@ -1,9 +1,9 @@
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-set $up l
-set $down k
-set $left j
-set $right semicolon
+set $up k
+set $down j
+set $left h
+set $right l
 
 set $mod Mod4
 new_window pixel 1
@@ -12,8 +12,8 @@ hide_edge_borders smart
 floating_modifier $mod
 font pango:Roboto 10
 
-bindsym $mod+Shift+Return exec alacritty -e "tmux"
-bindsym $mod+Return exec  alacritty 
+bindsym $mod+Shift+Return exec st -e "tmux"
+bindsym $mod+Return exec  st 
 bindsym $mod+Shift+q kill
 
 bindsym $mod+d exec --no-startup-id rofi -show run
@@ -73,7 +73,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+a focus parent
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+semicolon split h
 
 # split in vertical orientation
 bindsym $mod+v split v
