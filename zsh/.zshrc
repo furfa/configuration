@@ -67,7 +67,7 @@ ZSH_THEME="avit"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-git colored-man-pages pip tmux ubuntu vi-mode docker
+git colored-man-pages pip tmux vi-mode docker
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -100,7 +100,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 bindkey -v
 export KEYTIMEOUT=1
@@ -115,16 +116,3 @@ export PATH="${PATH}:${HOME}/.local/bin/"
 
 
 neofetch --memory_display mode bar --cpu_temp C 
-
-if [ -f ~/.ssh/agent.env ] ; then
-    . ~/.ssh/agent.env > /dev/null
-    if ! kill -0 $SSH_AGENT_PID > /dev/null 2>&1; then
-        echo "Stale agent file found. Spawning new agent… "
-        eval `ssh-agent | tee ~/.ssh/agent.env`
-        ssh-add
-    fi
-else
-    echo "Starting ssh-agent"
-    eval `ssh-agent | tee ~/.ssh/agent.env`
-    ssh-add
-fi

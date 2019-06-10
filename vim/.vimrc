@@ -17,8 +17,8 @@ Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Yggdroot/indentLine'
 Plugin 'klen/python-mode'
+Plugin 'sonph/onehalf', {'rtp': 'vim/'}
 
-Plugin 'ayu-theme/ayu-vim'
 Plugin 'wakatime/vim-wakatime'
 
 " All of your Plugins must be added before the following line
@@ -39,11 +39,8 @@ filetype plugin indent on    " required
 let g:indentLine_char = '┊'
 let g:indentLine_color_term = 239
 
-set termguicolors     " enable true colors support
-let ayucolor="dark"   " for dark version of theme
-colorscheme ayu
 " IndentLine {{
-let g:indentLine_char = '.'
+let g:indentLine_char = '┊'
 let g:indentLine_first_char = '.'
 let g:indentLine_showFirstIndentLevel = 1
 let g:indentLine_setColors = 0
@@ -64,4 +61,7 @@ set ruler
 "highlight Comment ctermfg=green
 
 set mouse=a
-"colorscheme delek 
+" colorscheme gruvbox 
+set cursorline
+colorscheme onehalfdark
+let g:airline_theme='onehalfdark'
