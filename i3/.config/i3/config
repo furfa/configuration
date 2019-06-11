@@ -16,7 +16,7 @@ bindsym $mod+Return exec  terminal
 bindsym $mod+Shift+q kill
 
 bindsym $mod+d exec --no-startup-id rofi -show run
-bindsym $mod+Shift+d exec --no-startup-id rofi -show drun
+bindsym $mod+Shift+d exec --no-startup-id rofi -show drun -show-icons
 bindsym $mod+Shift+v exec ~/.scripts/switch_screen.sh 
 bindsym XF86Explorer exec --no-startup-id rofi -show run
 # launch categorized menu
@@ -246,10 +246,10 @@ set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
 
 # window colors         border        background        text              indicator
-client.focused          $term_color4  $term_color4      $term_foreground  $term_color4
-client.unfocused        $term_color4  $term_background  $term_foreground  $term_color4
-client.focused_inactive $term_color4  $term_background  $term_foreground  $term_color4
-client.urgent           $term_color4  $term_background  $term_foreground  $term_color4
+client.focused          $term_color2  $term_color2      $term_foreground  $term_color2
+client.unfocused        $term_color2  $term_background  $term_foreground  $term_color2
+client.focused_inactive $term_color2  $term_background  $term_foreground  $term_color2
+client.urgent           $term_color2  $term_background  $term_foreground  $term_color2
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 
@@ -269,9 +269,9 @@ bar {
 	strip_workspace_numbers yes
 
     colors {
-        background #222D31
-        statusline #F9FAF9
-        separator  #454947
+        background $term_background
+        statusline $term_foreground
+        separator  $term_color7
 
 #                      border  backgr. text
         focused_workspace  #F9FAF9 #16a085 #292F34

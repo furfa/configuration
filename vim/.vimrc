@@ -36,11 +36,11 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-let g:indentLine_char = '┊'
+let g:indentLine_char = '�'
 let g:indentLine_color_term = 239
 
 " IndentLine {{
-let g:indentLine_char = '┊'
+let g:indentLine_char = '�'
 let g:indentLine_first_char = '.'
 let g:indentLine_showFirstIndentLevel = 1
 let g:indentLine_setColors = 0
@@ -49,8 +49,8 @@ let g:indentLine_setColors = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
 
-" Мой конфиг
-set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+" ��� ������
+set langmap=��������������������������;ABCDEFGHIJKLMNOPQRSTUVWXYZ,��������������������������;abcdefghijklmnopqrstuvwxyz
 set tabstop=2
 set shiftwidth=2
 set expandtab
