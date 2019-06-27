@@ -26,6 +26,8 @@ for type in Bold Light Medium Regular Retina; do
     "https://github.com/tonsky/FiraCode/blob/master/distr/ttf/FiraCode-${type}.ttf?raw=true";
 done
 fc-cache -f
-
-
 ```
+
+#### to fix hdd
+
+fsck /dev/sda6
