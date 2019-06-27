@@ -7,23 +7,20 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'bling/vim-airline' 
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Yggdroot/indentLine'
 Plugin 'klen/python-mode'
+Plugin 'ryanoasis/vim-devicons'
 Plugin 'sonph/onehalf', {'rtp': 'vim/'}
 
 Plugin 'wakatime/vim-wakatime'
 
-" All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -36,21 +33,22 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-let g:indentLine_char = '�'
+let g:indentLine_char = '.'
 let g:indentLine_color_term = 239
 
 " IndentLine {{
-let g:indentLine_char = '�'
+let g:indentLine_char = '.'
 let g:indentLine_first_char = '.'
 let g:indentLine_showFirstIndentLevel = 1
 let g:indentLine_setColors = 0
 " }}
 
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'default'
+set t_Co=256
+let g:airline_powerline_fonts = 0
 
-" ��� ������
-set langmap=��������������������������;ABCDEFGHIJKLMNOPQRSTUVWXYZ,��������������������������;abcdefghijklmnopqrstuvwxyz
+" Russian support
+set encoding=UTF-8
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 set tabstop=2
 set shiftwidth=2
 set expandtab

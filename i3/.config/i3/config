@@ -33,7 +33,7 @@ bindsym --release Print exec ~/.scripts/make_screenshot.sh
 ################################################################################################
 
 exec --no-startup-id volumeicon
-bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
+bindsym $mod+m exec pavucontrol 
 #exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet
 #bindsym $mod+Ctrl+m exec pavucontrol
@@ -182,13 +182,13 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # Set shut down, restart and locking features
 
-bindsym $mod+Shift+x exec  --no-startup-id blurlock#~/.scripts/lock.sh
+bindsym $mod+Shift+x exec  --no-startup-id ~/.scripts/lock.sh
 
 # Set shut down, restart and locking features
 bindsym $mod+Ctrl+Shift+x mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym l exec --no-startup-id ~/.scripts/lock.sh, mode "default"
     bindsym s exec --no-startup-id i3exit suspend, mode "default"
     bindsym u exec --no-startup-id i3exit switch_user, mode "default"
     bindsym e exec --no-startup-id i3exit logout, mode "default"
@@ -283,7 +283,7 @@ bar {
 }
 
 # hide/unhide i3status bar
-bindsym $mod+m bar mode toggle
+bindsym $mod+Ctrl+m bar mode toggle
 
 
 
@@ -302,7 +302,9 @@ bindsym $mod+Shift+t exec ~/.screenlayout/only-main.sh
 ##########################################################
 # AUTOSTART                                              #
 ##########################################################
-exec_always --no-startup-id libinput-gestures
+exec_always --no-startup-id libinput-gestures; sleep 1;
+exec_always --no-startup-id bash -c "flashfocus"; 
+
 
 exec --no-startup-id telegram-desktop
 
@@ -320,7 +322,7 @@ exec --no-startup-id keepassxc
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+exec --no-startup-id nitrogen wallpaper --restore; sleep 1; compton -b
 
 exec --no-startup-id manjaro-hello
 
@@ -336,11 +338,10 @@ exec --no-startup-id blueman-applet
 
 # exec_always --no-startup-id sbxkb
 
-exec --no-startup-id start_conky_maia
+exec --no-startup-id ~/.conky/conky-startup.sh
 
-# exec --no-startup-id start_conky_green
 
-exec --no-startup-id xautolock -time 10 -locker blurlock
+exec --no-startup-id xautolock -time 10 -locker ~/.scripts/lock.sh
 
 exec_always --no-startup-id ff-theme-util
 
@@ -362,7 +363,7 @@ bindsym $mod+Shift+F3 exec gksu pcmanfm
 bindsym $mod+F5 exec terminal -e 'mocp'
 # bindsym $mod+t exec --no-startup-id pkill compton
 # bindsym $mod+Ctrl+t exec --no-startup-id compton -b
-bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+bindsym $mod+Ctrl+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 # bindsym Print exec --no-startup-id i3-scrot
 # bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 # bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
