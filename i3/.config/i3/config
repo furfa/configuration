@@ -6,13 +6,14 @@ set $left h
 set $right l
 
 set $mod Mod4
+set $terminal kitty
 new_window pixel 1
 new_float normal
 hide_edge_borders smart
 floating_modifier $mod
 font pango:Roboto 10
 
-bindsym $mod+Return exec  terminal 
+bindsym $mod+Return exec  $terminal 
 bindsym $mod+Shift+q kill
 
 bindsym $mod+d exec --no-startup-id rofi -show run
@@ -355,12 +356,12 @@ bindsym $Mod+n exec --no-startup-id echo "vk \ntelegram-desktop" | rofi -dmenu |
 bindsym $Mod+b exec --no-startup-id nm-connection-editor
 
 # Start Applications
-bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
+bindsym $mod+Ctrl+b exec $terminal -e 'bmenu'
 bindsym $mod+F2 exec palemoon
 bindsym $mod+F3 exec pcmanfm
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec gksu pcmanfm
-bindsym $mod+F5 exec terminal -e 'mocp'
+bindsym $mod+F5 exec $terminal -e 'mocp'
 # bindsym $mod+t exec --no-startup-id pkill compton
 # bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 bindsym $mod+Ctrl+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
