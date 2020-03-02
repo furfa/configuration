@@ -23,7 +23,7 @@ bindsym XF86Explorer exec --no-startup-id rofi -show run
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
 
-exec --no-startup-id dunst &
+# exec --no-startup-id dunst &
 
 # Scrot binds
 bindsym --release Print exec ~/.scripts/make_screenshot.sh
@@ -33,17 +33,17 @@ bindsym --release Print exec ~/.scripts/make_screenshot.sh
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
 
-exec --no-startup-id volumeicon
 bindsym $mod+m exec pavucontrol 
+bindsym $mod+comma exec lxrandr 
 #exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet
 #bindsym $mod+Ctrl+m exec pavucontrol
 
 # # Audio
- bindsym XF86AudioRaiseVolume exec "~/.scripts/volume_control.sh raise; notify-send 'volume up'"
+ bindsym XF86AudioRaiseVolume exec "~/.scripts/volume_control.sh raise"
 
- bindsym XF86AudioLowerVolume exec "~/.scripts/volume_control.sh lower; notify-send 'volume down'"
- bindsym XF86AudioMute exec "~/.scripts/volume_control.sh mute; notify-send 'volume mute'" 
+ bindsym XF86AudioLowerVolume exec "~/.scripts/volume_control.sh lower"
+ bindsym XF86AudioMute exec "~/.scripts/volume_control.sh mute " 
  bindsym XF86AudioMicMute exec --no-startup-id amixer -D pulse sset Capture toggle
 
 # Screen brightness controls
@@ -155,15 +155,17 @@ for_window [class="GParted"] floating enable border normal
 for_window [title="i3_help"] floating enable sticky enable border normal
 for_window [class="Lightdm-settings"] floating enable
 for_window [class="Lxappearance"] floating enable sticky enable border normal
+for_window [class="Arandr"] floating enable sticky enable border normal
 for_window [class="Manjaro-hello"] floating enable
 for_window [class="Manjaro Settings Manager"] floating enable border normal
 for_window [title="MuseScore: Play Panel"] floating enable
 for_window [class="Nitrogen"] floating enable sticky enable border normal
 for_window [class="Oblogout"] fullscreen enable
 for_window [class="octopi"] floating enable
-for_window [title="About Pale Moon"] floating enable
 for_window [class="Pamac-manager"] floating enable
 for_window [class="Pavucontrol"] floating enable
+for_window [class="Blueman"] floating enable
+for_window [class="Cheese"] floating enable
 for_window [class="qt5ct"] floating enable sticky enable border normal
 for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
 for_window [class="Simple-scan"] floating enable border normal
@@ -172,6 +174,19 @@ for_window [class="Skype"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
+
+###############
+for_window [title="Рабочий стол по умолчанию — Plasma"] kill; floating enable; border none
+for_window [class="plasmashell"] floating enable;
+for_window [class="Plasma"] floating enable; border none
+for_window [title="plasma-desktop"] floating enable; border none
+for_window [title="win7"] floating enable; border none
+for_window [class="krunner"] floating enable; border none
+for_window [class="Kmix"] floating enable; border none
+for_window [class="Klipper"] floating enable; border none
+for_window [class="Plasmoidviewer"] floating enable; border none
+for_window [class="(?i)*nextcloud*"] floating disable
+for_window [class="plasmashell" window_type="notification"] floating enable, border none, move right 700px, move down 450px, no_focus 
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -201,6 +216,7 @@ mode "$mode_system" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
 
 # Resize menu
 mode "resize" {
@@ -247,54 +263,55 @@ set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
 
 # window colors         border        background        text              indicator
-client.focused          $term_color2  $term_color2      $term_foreground  $term_color2
-client.unfocused        $term_color2  $term_background  $term_foreground  $term_color2
-client.focused_inactive $term_color2  $term_background  $term_foreground  $term_color2
-client.urgent           $term_color2  $term_background  $term_foreground  $term_color2
+client.focused          $term_color4  $term_color4      $term_foreground  $term_color4
+client.unfocused        $term_color4  $term_background  $term_foreground  $term_color4
+client.focused_inactive $term_color4  $term_background  $term_foreground  $term_color4
+client.urgent           $term_color4  $term_background  $term_foreground  $term_color4
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
-bar {
-	i3bar_command i3bar
-	status_command i3status
-	position top
-
-## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-#	tray_output primary
-#	tray_output eDP1
-
-	bindsym button4 nop
-	bindsym button5 nop
-#   font xft:URWGothic-Book 11
-	strip_workspace_numbers yes
-
-    colors {
-        background $term_background
-        statusline $term_foreground
-        separator  $term_color7
-
-#                      border  backgr. text
-        focused_workspace  #F9FAF9 #16a085 #292F34
-        active_workspace   #595B5B #353836 #FDF6E3
-        inactive_workspace #595B5B #222D31 #EEE8D5
-        binding_mode       #16a085 #2C2C2C #F9FAF9
-        urgent_workspace   #16a085 #FDF6E3 #E5201D
-    }
-}
+# bar {
+# 	i3bar_command i3bar
+# 	status_command i3status
+# 	position top
+#
+# ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+# #	tray_output primary
+# #	tray_output eDP1
+#
+# 	bindsym button4 nop
+# 	bindsym button5 nop
+# #   font xft:URWGothic-Book 11
+# 	strip_workspace_numbers yes
+#
+#     colors {
+#         background $term_background
+#         statusline $term_foreground
+#         separator  $term_color7
+#
+# #                      border  backgr. text
+#         focused_workspace  #F9FAF9 $term_color4 $term_background
+#         active_workspace   $term_color7 #353836 #FDF6E3
+#         inactive_workspace $term_color7 #222D31 #EEE8D5
+#         binding_mode       #16a085 #2C2C2C #F9FAF9
+#         urgent_workspace   #16a085 #FDF6E3 #E5201D
+#     }
+# }
 
 # hide/unhide i3status bar
-bindsym $mod+Ctrl+m bar mode toggle
+# bindsym $mod+Ctrl+m bar mode toggle
 
 
 
-exec_always "setxkbmap -option 'grp:alt_shift_toggle' -layout us,ru"
+# exec_always "setxkbmap -option 'grp:alt_shift_toggle' -layout us,ru"
+
 ##########################################################
 # RUNAPPS                                                #
 ##########################################################
 
 bindsym $mod+Shift+w exec firefox
-bindsym $mod+Ctrl+t exec thunar
+bindsym $mod+Ctrl+t exec dolphin
 bindsym $mod+Ctrl+k exec keepassxc
 
 bindsym $mod+Shift+y exec gksu ~/.scripts/reset_touchpad.sh
@@ -311,40 +328,37 @@ exec --no-startup-id telegram-desktop
 
 exec --no-startup-id psensor
 
-exec --no-startup-id vk
+exec --no-startup-id vk-messenger   
 
 exec --no-startup-id dropbox start
 
 exec --no-startup-id keepassxc
 
-exec --no-startup-id caffeine
+# exec --no-startup-id caffeine
+
+# exec --no-startup-id redshift-gtk
 
 ##########################################################
 # FROM Manjaro                                           #
 ##########################################################
 
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# exec --no-startup-id lxpolkit
 
 exec --no-startup-id nitrogen wallpaper --restore; sleep 1; compton -b
 
-exec --no-startup-id manjaro-hello
+# exec --no-startup-id manjaro-hello
 
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 
-exec --no-startup-id xfce4-power-manager
+# exec --no-startup-id xfce4-power-manager
 
-exec --no-startup-id pamac-tray
+# exec --no-startup-id pamac-tray
 
-exec --no-startup-id clipit
+# exec --no-startup-id clipit
 
-exec --no-startup-id blueman-applet
-
-# exec_always --no-startup-id sbxkb
+# exec --no-startup-id blueman-applet
 
 exec --no-startup-id ~/.conky/conky-startup.sh
-
-
-exec --no-startup-id xautolock -time 10 -locker ~/.scripts/lock.sh
 
 exec_always --no-startup-id ff-theme-util
 
@@ -354,19 +368,16 @@ exec_always --no-startup-id fix_xcursor
 # RUN shortcuts                                          #
 ##########################################################
 
-bindsym $Mod+n exec --no-startup-id echo "vk \ntelegram-desktop" | rofi -dmenu | bash
+bindsym $Mod+n exec --no-startup-id echo -e 'vk-messenger \ntelegram-desktop' | rofi -dmenu | bash
 bindsym $Mod+b exec --no-startup-id nm-connection-editor
 
 # Start Applications
 bindsym $mod+Ctrl+b exec $terminal -e 'bmenu'
-bindsym $mod+F2 exec palemoon
-bindsym $mod+F3 exec pcmanfm
 # bindsym $mod+F3 exec ranger
-bindsym $mod+Shift+F3 exec gksu pcmanfm
 bindsym $mod+F5 exec $terminal -e 'mocp'
 # bindsym $mod+t exec --no-startup-id pkill compton
 # bindsym $mod+Ctrl+t exec --no-startup-id compton -b
-bindsym $mod+Ctrl+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+# bindsym $mod+Ctrl+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 # bindsym Print exec --no-startup-id i3-scrot
 # bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 # bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s

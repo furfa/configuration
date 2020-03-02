@@ -117,3 +117,5 @@ export PATH="${PATH}:${HOME}/.local/bin/"
 
 
 neofetch --memory_display mode bar --cpu_temp C 
+
+alias py=ipython
