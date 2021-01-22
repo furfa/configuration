@@ -10,9 +10,7 @@ export ZSH="/home/furfa/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="avit"
-
-
+ZSH_THEME="bureau"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -67,7 +65,7 @@ ZSH_THEME="avit"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-git colored-man-pages pip tmux vi-mode docker
+git colored-man-pages pip tmux docker
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -107,7 +105,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 bindkey -v
 export KEYTIMEOUT=1
 
-export EDITOR=vim
+export EDITOR=nvim
 
 # added by Anaconda3 installer
 export PATH="/home/furfa/anaconda3/bin:$PATH"
@@ -116,6 +114,58 @@ export PATH="/home/furfa/anaconda3/bin:$PATH"
 export PATH="${PATH}:${HOME}/.local/bin/"
 
 
-neofetch --memory_display mode bar --cpu_temp C 
+alias ip='ip -color=auto'
+alias diff='diff --color=auto'
+alias grep='grep --color=auto'
+alias py='ipython -i -c"import numpy as np; from math import *" '
 
-alias py=ipython
+alias vimdiff='nvim -d'
+alias vim="nvim"
+alias v="nvim"
+
+if [ -z "$RANGER_LEVEL" ]; then neofetch --memory_display mode bar --cpu_temp C; fi
+function ranger {
+    local IFS=$'\t\n'
+    local tempfile="$(mktemp -t tmp.XXXXXX)"
+    local ranger_cmd=(
+        command
+        ranger
+        --cmd="map Q chain shell echo %d > "$tempfile"; quitall"
+    )
+    
+    ${ranger_cmd[@]} "$@"
+    if [[ -f "$tempfile" ]] && [[ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]]; then
+        cd -- "$(cat "$tempfile")" || return
+    fi
+    command rm -f -- "$tempfile" 2>/dev/null
+}
+ranger() {
+    if [ -z "$RANGER_LEVEL" ]; then
+        /usr/bin/ranger "$@"
+    else
+        exit
+    fi
+}
+
+alias ra=ranger
+GOPATH=/home/furfa/go
+
+# alias cf=/home/furfa/go/src/github.com/xalanq/cf-tool/cf
+autoload -Uz compinit
+compinit
+# Completion for kitty
+kitty + complete setup zsh | source /dev/stdin
+
+[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+
+
+ # Ensure that we have an ssh config with AddKeysToAgent set to true
+ if [ ! -f ~/.ssh/config ] || ! cat ~/.ssh/config | grep AddKeysToAgent | grep yes > /dev/null; then
+     echo "AddKeysToAgent  yes" >> ~/.ssh/config
+ fi
+ # Ensure a ssh-agent is running so you only have to enter keys once
+ if [ ! -S ~/.ssh/ssh_auth_sock ]; then
+   eval `ssh-agent`
+   ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+ fi
+ export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
