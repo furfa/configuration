@@ -65,7 +65,7 @@ ZSH_THEME="bureau"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-git colored-man-pages pip tmux docker
+git colored-man-pages pip tmux docker yarn
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -102,7 +102,7 @@ source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 
-bindkey -v
+bindkey -e
 export KEYTIMEOUT=1
 
 export EDITOR=nvim
@@ -113,6 +113,9 @@ export PATH="/home/furfa/anaconda3/bin:$PATH"
 # (In your .bashrc, .zshrc etc)
 export PATH="${PATH}:${HOME}/.local/bin/"
 
+export PATH="/home/furfa/bin:$PATH"
+
+export PATH="$(yarn global bin):$PATH"
 
 alias ip='ip -color=auto'
 alias diff='diff --color=auto'
@@ -122,6 +125,8 @@ alias py='ipython -i -c"import numpy as np; from math import *" '
 alias vimdiff='nvim -d'
 alias vim="nvim"
 alias v="nvim"
+alias pbcopy='xsel --clipboard --input'
+alias pbpaste='xsel --clipboard --output'
 
 if [ -z "$RANGER_LEVEL" ]; then neofetch --memory_display mode bar --cpu_temp C; fi
 function ranger {
@@ -147,6 +152,18 @@ ranger() {
     fi
 }
 
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    fg
+    zle redisplay
+  else
+    zle push-input
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+
+
 alias ra=ranger
 GOPATH=/home/furfa/go
 
@@ -169,3 +186,11 @@ kitty + complete setup zsh | source /dev/stdin
    ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
  fi
  export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+
+ eval $(thefuck --alias)
+
+
+# For tilix
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+        source /etc/profile.d/vte.sh
+fi

@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/furfa/.config/nvim'
+let g:netrw_dirhist_2='/home/furfa'
+let g:netrw_dirhist_1='/home/furfa/.scripts'
+let g:netrw_dirhist_0='/home/furfa/.ipython'
+let g:netrw_dirhist_9='/home/furfa/.ipython/nbextensions'
+let g:netrw_dirhist_8='/home/furfa/.ipython'
+let g:netrw_dirhist_7='/home/furfa/.ipython/extensions'
+let g:netrw_dirhist_6='/home/furfa/.ipython'
+let g:netrw_dirhist_5='/home/furfa/.config'
+let g:netrw_dirhist_4='/home/furfa/.config/i3'

@@ -9,7 +9,8 @@ import os
 AUTOSET = True
 WALLPAPER_DIR = "/home/furfa/bing-wallpaper"
 
-photo_url = "https://source.unsplash.com/random/1920x1080"
+# photo_url = "https://source.unsplash.com/random/1920x1080"
+photo_url = "https://source.unsplash.com/1920x1080/?neon"
 print(photo_url)
 
 photo_req = requests.get(photo_url, allow_redirects=True)
