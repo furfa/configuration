@@ -41,8 +41,8 @@ set nowrap
 set encoding=UTF-8
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
-set background=dark
-colorscheme dracula
+" set background=dark
+colorscheme dracula 
 
 if (has("termguicolors"))
   set termguicolors
@@ -64,7 +64,6 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 
 " Open the existing NERDTree on each new tab.
 " autocmd BufWinEnter * silent NERDTreeMirror
-
 
 " Give more space for displaying messages.
 set cmdheight=2
