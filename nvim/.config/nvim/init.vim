@@ -41,8 +41,9 @@ set nowrap
 set encoding=UTF-8
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
-" set background=dark
+" Dracula theme transparent background
 colorscheme dracula 
+hi Normal guibg=NONE ctermbg=NONE
 
 if (has("termguicolors"))
   set termguicolors
